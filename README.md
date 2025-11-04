@@ -12,6 +12,25 @@ Steps:
 
 - In the last step create production branch from master
 
+```
+             ┌────────────────┐
+             │ Push to master │
+             └───────┬────────┘
+                     │
+              triggers in ci.yml
+                     │
+         ┌───────────┴────────────┐
+         │                        │
+ .gitlab/template/          .gitlab/template/
+mautic_b2b_staging.yml    mautic_b2c_staging.yml
+         │                        │
+   include base.yml          include base.yml
+         │                        │
+   Runner (b2b-staging)      Runner (b2c-staging)
+         │                        │
+     Deployment              Deployment
+
+```
 
 Install gitlab runners to mautic b2b production and mautic b2c production  
 
