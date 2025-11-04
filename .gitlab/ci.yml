@@ -1,0 +1,37 @@
+stages:
+  - deploy
+
+################## STAGING #######################################
+mautic_b2b_staging:
+  stage: deploy
+  trigger:
+    include: /.gitlab/template/mautic_b2b_staging.yml
+    strategy: depend
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+
+mautic_b2c_staging:
+  stage: deploy
+  trigger:
+    include: /.gitlab/template/mautic_b2c_staging.yml
+    strategy: depend
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
+
+################ PRODUCTION #########################################
+
+mautic_b2b_production:
+  stage: deploy
+  trigger:
+    include: /.gitlab/template/mautic_b2b_production.yml
+    strategy: depend
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "production"'
+
+mautic_b2c_production:
+  stage: deploy
+  trigger:
+    include: /.gitlab/template/mautic_b2c_production.yml
+    strategy: depend
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "production"'
