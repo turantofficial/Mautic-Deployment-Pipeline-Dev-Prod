@@ -1,0 +1,7 @@
+default:
+  tags:
+    - mautic-staging-b2c
+variables:
+  BRANCH: "master"
+
+include: /.gitlab/template/base.yml
