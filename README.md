@@ -36,4 +36,3 @@ Create a .gitlab folder:
 `mkdir -p /var/www/mautic/.gitlab` 
 
 `git add -f .gitlab`  
-
